@@ -1,0 +1,39 @@
+# PDF Intelligence System
+
+A Docker-containerized system for extracting document structure and providing persona-driven content analysis, designed for Adobe's "Connecting the Dots" Hackathon Challenge.
+
+## Features
+
+### Round 1A: PDF Structure Extraction
+- Extracts document titles and hierarchical headings (H1, H2, H3)
+- Outputs structured JSON with heading levels, text, and page numbers
+- Processes documents up to 50 pages within 10 seconds
+- Supports multiple PDF formats and languages
+
+
+## Technical Architecture
+
+### Core Components
+- **PDFProcessor**: Base PDF processing using PyMuPDF
+- **StructureExtractor**: Heading detection and title extraction
+- **Utils**: Common utilities and helper functions
+
+### Key Technologies
+- **Python 3.9**: Primary programming language
+- **PyMuPDF**: PDF processing and text extraction
+- **Docker**: Containerization for consistent deployment
+- **JSON**: Structured output format
+
+## Installation and Usage
+
+### Building the Docker Image
+```bash
+docker build --platform linux/amd64 -t pdf-intelligence:latest .
+
+docker run --rm \
+  -v "$(pwd)/input:/app/input" \
+  -v "$(pwd)/output:/app/output" \
+  --network none \
+  mysolutionname:somerandomidentifier
+
+
